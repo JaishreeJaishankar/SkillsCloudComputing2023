@@ -5,19 +5,19 @@ on:
     - prod
     - dev
     paths: 
-    - /Application/FLASK\ app/**
+    - /Application/FLASK app/**
   push:
     branches:
     - prod
     - dev
     paths:
-    - /Application/FLASK\ app/**
+    - /Application/FLASK app/**
 
   pull_request:
     branches:
     - prod
     paths: 
-    - /Application/FLASK\ app/**
+    - /Application/FLASK app/**
 
   workflow_run:
     workflows: ["Web App Code Deployment - Dev"]
@@ -31,7 +31,7 @@ env:
   ECS_TASK_DEFINITION: task-definition.json                                             
   CONTAINER_NAME:  container                                                        
   AWS_REGION: us-east-1
-  WORKING_DIR: ./Application/FLASK\ app
+  WORKING_DIR: ./Application/FLASK app
 
 permissions:
   contents: read
