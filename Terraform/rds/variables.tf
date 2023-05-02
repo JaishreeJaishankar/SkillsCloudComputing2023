@@ -21,3 +21,8 @@ variable "public_subnet_cidr_blocks" {
   type        = list(string)
   description = "The list of public subnet cidr blocks to allow access to the DB instance"
 }
+
+variable "ecs_sg" {
+  type        = string
+  description = "ecs_task_sg"
+}

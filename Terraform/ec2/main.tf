@@ -19,11 +19,12 @@ resource "local_file" "ssh_key" {
 resource "aws_security_group" "ec2_sg" {
   name_prefix = "this-ec2-sg-"
   vpc_id      = var.vpc_id
+
   ingress {
     from_port   = 5000
     to_port     = 5000
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    security_groups = [var.alb_security_group]
   }
 
   egress {
