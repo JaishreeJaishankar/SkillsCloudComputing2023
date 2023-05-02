@@ -7,12 +7,22 @@ variable "vpc_id" {
   type = string
 }
 
-variable "public_subnets" {
-  type        = list(string)
-  description = "The list of subnets to host DB instance"
-}
-
 variable "db_paramters" {
   type        = map(string)
   description = "Map of DB configuration parameters for MySQL DB"
+}
+
+variable "private_subnets" {
+  type        = list(string)
+  description = "The list of private subnets to host the DB instance"
+}
+
+variable "public_subnet_cidr_blocks" {
+  type        = list(string)
+  description = "The list of public subnet cidr blocks to allow access to the DB instance"
+}
+
+variable "ecs_sg" {
+  type        = string
+  description = "ecs_task_sg"
 }

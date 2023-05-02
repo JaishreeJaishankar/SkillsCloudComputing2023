@@ -70,7 +70,7 @@ def signUp():
 
     if(conn is None):   
         logging.error("DB connection failed", exc_info=True)
-        return render_template('error.html', message="DB connection failed") 
+        return render_template('error.html', message="DB connection failed!!!") 
     _name = request.form['inputName']
     _email = request.form['inputEmail']
     _password = request.form['inputPassword']
