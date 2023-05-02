@@ -4,11 +4,11 @@ resource "aws_ecs_task_definition" "this" {
   requires_compatibilities = ["FARGATE"]
   cpu                      = "512"
   memory                   = "1024"
-  execution_role_arn       = var.iam_role
+  execution_role_arn       = aws
   task_role_arn            = var.iam_role
   container_definitions = jsonencode([{
     name      = "this-container"
-    image     = "379114597277.dkr.ecr.us-east-1.amazonaws.com/testrepo:latest"
+    image     = "379114597277.dkr.ecr.us-east-1.amazonaws.com/this-repo:latest"
     essential = true
     portMappings = [{
       protocol      = "tcp"
