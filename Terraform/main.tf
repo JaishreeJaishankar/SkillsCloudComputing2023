@@ -1,4 +1,3 @@
-
 module "vpc" {
   source = "./vpc"
 
@@ -21,9 +20,13 @@ module "rds" {
   source = "./rds"
 
   snapshot_arn   = "arn:aws:rds:us-east-1:156463586173:snapshot:skillsdb-snapshot"
-  public_subnets = module.vpc.public_subnets
+  private_subnets = module.vpc.private_subnets
   vpc_id         = module.vpc.vpc_id
   db_paramters   = module.parameters.db_parameters
+  public_subnet_cidr_blocks = [
+    "10.0.3.0/24",
+    "10.0.4.0/24"
+  ]
 }
 
 module "ec2" {

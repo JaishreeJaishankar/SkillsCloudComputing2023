@@ -1,6 +1,6 @@
 resource "aws_db_subnet_group" "this" {
   name       = "this-subnet-group"
-  subnet_ids = var.public_subnets
+  subnet_ids = var.private_subnets
 }
 
 data "aws_db_snapshot" "this" {
@@ -14,7 +14,7 @@ resource "aws_security_group" "this_db_sg" {
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Update with your desired CIDR block
+    cidr_blocks = var.public_subnet_cidr_blocks
   }
 }
 
